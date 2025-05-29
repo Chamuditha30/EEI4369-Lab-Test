@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Chamuditha</string>
+    <string name="loginImgDec">loginImg</string>
+    <string name="SID">S22010695</string>
+    <string name="usernamePlaceholder">Username</string>
+    <string name="passwordPlaceholder">Password</string>
+    <string name="loginBtnTxt">Login</string>
+</resources>
