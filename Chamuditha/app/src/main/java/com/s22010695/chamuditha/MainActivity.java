@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /*navigate to google map activity using intent*/
     public void navToGoogleMapActivity(View view) {
         Intent intent = new Intent(this, GoogleMapActivity.class);
         startActivity(intent);

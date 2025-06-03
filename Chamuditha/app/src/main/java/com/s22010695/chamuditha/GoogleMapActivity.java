@@ -1,5 +1,6 @@
 package com.s22010695.chamuditha;
 
+import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -29,14 +30,15 @@ import java.util.List;
 public class GoogleMapActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     //create objects
-    GoogleMap map;
-    List<Address> addressList;
-    EditText searchQuery;
+    private GoogleMap map;
+    private List<Address> addressList;
+    private EditText searchQuery;
 
-    double longitude = 80.7718;
-    double latitude = 7.8731;
-    float zoom = 7;
-    String title = "Sri Lanka";
+    //create variables
+    private double longitude = 80.7718;
+    private double latitude = 7.8731;
+    private float zoom = 7;
+    private String title = "Sri Lanka";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +64,7 @@ public class GoogleMapActivity extends AppCompatActivity implements OnMapReadyCa
         map.getUiSettings().setZoomControlsEnabled(true);
     }
 
+    /*search location function*/
     public void showLocation(View view) {
         //get search query from id
         searchQuery = findViewById(R.id.searchQuery);
@@ -88,7 +91,7 @@ public class GoogleMapActivity extends AppCompatActivity implements OnMapReadyCa
                 LatLng newLocation = new LatLng(latitude, longitude);
                 map.clear();
                 map.addMarker(new MarkerOptions().position(newLocation).title(location));
-                map.animateCamera(CameraUpdateFactory.newLatLngZoom(newLocation, 18.0f));
+                map.animateCamera(CameraUpdateFactory.newLatLngZoom(newLocation, 16.0f));
 
             } else {
 
@@ -99,5 +102,17 @@ public class GoogleMapActivity extends AppCompatActivity implements OnMapReadyCa
             //if any error toast a error message
             Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    /*navigate to main activity using intent*/
+    public void navToLoginActivity(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    /*navigate to audio activity using intent*/
+    public void navToAudioActivity(View view) {
+        Intent intent = new Intent(this, AudioActivity.class);
+        startActivity(intent);
     }
 }

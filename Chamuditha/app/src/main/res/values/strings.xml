@@ -1,11 +1,29 @@
 <resources>
     <string name="app_name">Chamuditha</string>
+
+    <!--login activity-->
+    <string name="loginTitle">Login</string>
     <string name="loginImgDec">loginImg</string>
     <string name="SID">S22010695</string>
     <string name="usernamePlaceholder">Username</string>
     <string name="passwordPlaceholder">Password</string>
     <string name="loginBtnTxt">Login</string>
+    <string name="navToGoogleMapActivity">navToGoogleMapActivity</string>
+
+    <!--google map activity-->
+    <string name="mapTitle">Map</string>
     <string name="GoogleMapAPI">AIzaSyCjaMJiEpS_YPXU2esd6YfF8YPMG1hl-m0</string>
     <string name="searchPlaceholder">Enter Address</string>
     <string name="searchBtnTxt">Show Location</string>
+    <string name="navToLoginActivity">navToLoginActivity</string>
+    <string name="navToAudioActivity">navToAudioActivity</string>
+
+    <!--audio activity-->
+    <string name="audioTitle">Audio</string>
+    <string name="backToGoogleMapActivity">backToGoogleMapActivity</string>
+    <string name="audioCoverDes">audioCover</string>
+    <string name="audioName">Mockingbird Instrumental</string>
+    <string name="singerName">Eminem</string>
+    <string name="tempIconDes">TempIcon</string>
+    <string name="audioStatus">Paused</string>
 </resources>
