@@ -53,6 +53,9 @@ public class GoogleMapActivity extends AppCompatActivity implements OnMapReadyCa
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        //get search query from id
+        searchQuery = findViewById(R.id.searchQuery);
     }
 
     @Override
@@ -64,15 +67,13 @@ public class GoogleMapActivity extends AppCompatActivity implements OnMapReadyCa
         map.getUiSettings().setZoomControlsEnabled(true);
     }
 
-    /*search location function*/
+    //search location function
     public void showLocation(View view) {
-        //get search query from id
-        searchQuery = findViewById(R.id.searchQuery);
         //convert search query string
         String location = searchQuery.getText().toString();
 
         //search query validation
-        if (location.equals("")) {
+        if (location.isEmpty()) {
             //if query is empty toast a error message
             Toast.makeText(this, "Please enter address", Toast.LENGTH_SHORT).show();
             return;
@@ -104,13 +105,13 @@ public class GoogleMapActivity extends AppCompatActivity implements OnMapReadyCa
         }
     }
 
-    /*navigate to main activity using intent*/
+    //navigate to main activity using intent
     public void navToLoginActivity(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
-    /*navigate to audio activity using intent*/
+    //navigate to audio activity using intent
     public void navToAudioActivity(View view) {
         Intent intent = new Intent(this, AudioActivity.class);
         startActivity(intent);

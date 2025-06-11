@@ -24,7 +24,6 @@ public class AudioActivity extends AppCompatActivity implements SensorEventListe
     private TextView audioStatus;
     private ImageView tempIcon;
     private SensorManager sensorManager;
-    private Sensor sensor;
     private MediaPlayer mediaPlayer;
 
     //create variables
@@ -51,18 +50,12 @@ public class AudioActivity extends AppCompatActivity implements SensorEventListe
         tempIcon = findViewById(R.id.tempIcon);
     }
 
-    /*navigate back to google map activity using intent*/
-    public void navToLoginActivity(View view) {
-        Intent intent = new Intent(this, GoogleMapActivity.class);
-        startActivity(intent);
-    }
-
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
         temperature = sensorEvent.values[0];
 
         //change audio status and status icon according to temp change
-        if (temperature > tempThreshold){
+        if (temperature >= tempThreshold){
             mediaPlayer.start();
             audioStatus.setText(String.valueOf("Playing"));
             tempIcon.setImageResource(R.drawable.high_temp);
@@ -70,9 +63,7 @@ public class AudioActivity extends AppCompatActivity implements SensorEventListe
     }
 
     @Override
-    public void onAccuracyChanged(Sensor sensor, int i) {
-
-    }
+    public void onAccuracyChanged(Sensor sensor, int i) {}
 
     //add sensor event listener in on resume
     @Override
@@ -83,10 +74,16 @@ public class AudioActivity extends AppCompatActivity implements SensorEventListe
     }
 
     //remove sensor event listener in on resume
-
     @Override
     protected void onPause() {
         super.onPause();
         sensorManager.unregisterListener(this);
     }
+
+    //navigate back to google map activity using intent
+    public void navToLoginActivity(View view) {
+        Intent intent = new Intent(this, GoogleMapActivity.class);
+        startActivity(intent);
+    }
+
 }
