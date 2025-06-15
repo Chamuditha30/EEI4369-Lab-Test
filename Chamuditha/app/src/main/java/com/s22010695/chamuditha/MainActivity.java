@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     public void insertData(View view) {
         //convert user inputs to string
         String user = username.getText().toString();
-        String pass = username.getText().toString();
+        String pass = password.getText().toString();
 
         //empty input validation
         if(user.isEmpty() || pass.isEmpty()){
